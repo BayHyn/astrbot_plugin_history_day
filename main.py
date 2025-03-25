@@ -16,7 +16,7 @@ FONT_PATH = os.path.join(PLUGIN_DIR, "resource", "华文新魏.ttf")
 BACKGROUND_PATH = os.path.join(PLUGIN_DIR, "resource", "background.png")
 
 
-@register("历史上的某天", "Zhalslar", "饰乐插件", "1.0.0", "https://github.com/Zhalslar/astrbot_plugin_today_in_history")
+@register("astrbot_plugin_history_day", "Zhalslar", "查看历史上的某天发生的大事", "1.0.0", "https://github.com/Zhalslar/astrbot_plugin_history_day")
 class HistoryPlugin(Star):
     def __init__(self, context: Context):
         super().__init__(context)
@@ -53,7 +53,6 @@ class HistoryPlugin(Star):
                         return
                     break
             else:
-                yield event.plain_result("匹配不上")
                 return
 
 
