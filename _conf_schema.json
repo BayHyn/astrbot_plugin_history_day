@@ -1,0 +1,20 @@
+{
+    "is_temp_image": {
+        "description": "是否缓存当天图片",
+        "type": "bool",
+        "hint": "打开后，当日的图片只需生成一次，无需重复生成",
+        "default": true
+    },
+     "auto_clear_temp": {
+        "description": "自动清理非当日的缓存",
+        "type": "bool",
+        "hint": "打开后，非当日的缓存图片会被自动清理",
+        "default": true
+    },
+     "red_depth": {
+          "description": "血色鲜艳程度",
+          "type": "int",
+          "hint": "调整生成图中红色字的鲜艳程度，范围为0~255, 数字越大越鲜艳，默认40",
+          "default": 40
+      }
+}
