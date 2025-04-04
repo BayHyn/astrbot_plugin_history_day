@@ -1,7 +1,8 @@
 import json
-import os
 import re
 from datetime import date, datetime, timedelta
+from pathlib import Path
+
 import aiohttp
 from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
@@ -10,10 +11,14 @@ from astrbot import logger
 from astrbot.api.event import filter
 from astrbot.api.star import Context, Star, register
 from astrbot.core.platform import AstrMessageEvent
+import astrbot.core.message.components  as Comp
 
-PLUGIN_DIR = os.path.dirname(os.path.abspath(__file__))
-FONT_PATH = os.path.join(PLUGIN_DIR, "resource", "华文新魏.ttf")
-BACKGROUND_PATH = os.path.join(PLUGIN_DIR, "resource", "background.png")
+RESOURCE_DIR = Path("data/plugins/astrbot_plugin_history_day/resource")
+FONT_PATH = RESOURCE_DIR / "华文新魏.ttf"
+BACKGROUND_PATH = RESOURCE_DIR / "background.png"
+
+TEMP_DIR = Path("data/plugins_data/astrbot_plugin_history_day")
+TEMP_DIR.mkdir(parents=True, exist_ok=True)
 
 
 @register("astrbot_plugin_history_day", "Zhalslar", "查看历史上的某天发生的大事", "1.0.0", "https://github.com/Zhalslar/astrbot_plugin_history_day")
@@ -22,10 +27,11 @@ class HistoryPlugin(Star):
         super().__init__(context)
         self.month = date.today().strftime("%m")
         self.day = date.today().strftime("%d")
-        self.temp_path = "history_day.png"
+
 
     @filter.regex(r'^历史上的.*')
     async def on_regex(self, event: AstrMessageEvent):
+        """/历史上的{今天、昨天、明天、3月12日、3月12号、3.12}"""
         date_str: str = event.get_message_str().lstrip("历史上的").strip()
         today: date = datetime.now().date()
         if date_str in {"今天", "昨天", "明天"}:
@@ -54,7 +60,11 @@ class HistoryPlugin(Star):
                     break
             else:
                 return
-
+        image_name = f"{datetime.now().month}月{datetime.now().day}日.png"
+        image_path = TEMP_DIR / image_name
+        if image_path.exists():
+            yield event.image_result(str(image_path))
+            return
 
         text = await self.get_events_on_history(self.month)
         data = self.html_to_json_func(text)
@@ -68,9 +78,13 @@ class HistoryPlugin(Star):
             str_title = data[self.month][today_][i]["title"]
             reply += f"{str_year} {str_title}" + ("\n" if i < len_max - 1 else "")
 
-        image_path = self.text_to_image_path(reply)
-        yield event.image_result(image_path)
-        os.remove(self.temp_path)
+        image_bytes = self.text_to_image_bytes(reply)
+        image = Image.open(BytesIO(image_bytes))
+        image.save(image_path)
+
+        chain=[Comp.Image.fromBytes(image_bytes)]
+        yield event.chain_result(chain)
+
 
 
     @staticmethod
@@ -122,8 +136,9 @@ class HistoryPlugin(Star):
 
         return json.loads(text)
 
-    def text_to_image_path(self, text: str) -> str:
-        """将给定文本转换为图像，并返回图像的保存路径"""
+    @staticmethod
+    def text_to_image_bytes(text: str) -> bytes:
+        """将给定文本转换为图像"""
 
         FONT_SIZE = 20  # 字体大小
         LINE_HEIGHT = 30  # 行高
@@ -158,14 +173,9 @@ class HistoryPlugin(Star):
             draw.text((MARGIN_LEFT, y_text), line, fill=line_color, font=font)
             y_text += LINE_HEIGHT
 
-        # 将图片保存
         img_byte_arr = BytesIO()
         background_img.save(img_byte_arr, format='PNG')
-        with open(self.temp_path, 'wb') as f:
-            f.write(img_byte_arr.getvalue())
-        return self.temp_path
-
-
+        return img_byte_arr.getvalue()
 
 
 
