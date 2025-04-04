@@ -60,7 +60,7 @@ class HistoryPlugin(Star):
                     break
             else:
                 return
-        image_name = f"{datetime.now().month}月{datetime.now().day}日.png"
+        image_name = f"{self.month}月{self.day}日.png"
         image_path = TEMP_DIR / image_name
         if image_path.exists():
             yield event.image_result(str(image_path))
