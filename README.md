@@ -1,8 +1,12 @@
+访问次数
+
 </div>
 
 <div align="center">
 
-![:name](https://count.getloli.com/@astrbot_plugin_history_day?name=astrbot_plugin_history_day&theme=minecraft&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
+
+
+![:name](https://count.getloli.com/@astrbot_plugin_history_day?name=astrbot_plugin_history_day&theme=minecraft&padding=6&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
 
 # astrbot_plugin_history_day
 
