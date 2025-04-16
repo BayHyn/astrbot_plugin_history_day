@@ -1,10 +1,7 @@
-访问次数
 
 </div>
 
 <div align="center">
-
-
 
 ![:name](https://count.getloli.com/@astrbot_plugin_history_day?name=astrbot_plugin_history_day&theme=minecraft&padding=6&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
 
@@ -56,15 +53,19 @@ git clone https://github.com/Zhalslar/astrbot_plugin_memelite
 
 ![1625055cde4a7bde5cc42ca6a2ca56c](https://github.com/user-attachments/assets/ebc919fd-874c-4dbf-89a4-ba199ea16523)
 
+## 🤝 TODO
+
+- [x] 查看历史上的今天
+- [x] 查看历史上的每一天
+
+## 👥 贡献指南
+
+- 🌟 Star 这个项目！（点右上角的星星，感谢支持！）
+- 🐛 提交 Issue 报告问题
+- 💡 提出新功能建议
+- 🔧 提交 Pull Request 改进代码
+
 ## 📌 注意事项
 
 - 已知某些日期会报错，还没深入测试
 - 如果想第一时间得到反馈的可以来作者的插件反馈群（QQ群）：460973561
-
-## 🌟 支持
-
-- Star 这个项目！
-
-## 📜 开源协议
-
-本项目采用 [MIT License](LICENSE)
