@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![:name](https://count.getloli.com/@astrbot_plugin_zanwo?name=astrbot_plugin_zanwo&theme=minecraft&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
+![:name](https://count.getloli.com/@astrbot_plugin_history_day?name=astrbot_plugin_history_day&theme=minecraft&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
 
 # astrbot_plugin_history_day
 
@@ -11,14 +11,9 @@ _✨ 历史上的某天 ✨_
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 [![AstrBot](https://img.shields.io/badge/AstrBot-3.4%2B-orange.svg)](https://github.com/Soulter/AstrBot)
-[![GitHub](https://img.shields.io/badge/作者-Futureppo-blue)](https://github.com/Futureppo)
+[![GitHub](https://img.shields.io/badge/作者-Zhalslar-blue)](https://github.com/Zhalslar)
 
 </div>
-
-
-
-
-
 
 ## 📖 介绍
 
@@ -41,7 +36,9 @@ git clone https://github.com/Zhalslar/astrbot_plugin_memelite
 ```
 
 ## 🎉 使用
+
 ### 指令表
+
 |    指令     |       说明       |
 |:---------:|:--------------:|
 |  历史上的今天   |  查看历史上的今天   |
@@ -51,17 +48,14 @@ git clone https://github.com/Zhalslar/astrbot_plugin_memelite
 | 历史上的3月11号 | 查看历史上的3月11日 |
 | 历史上的3.11  | 查看历史上的3月11日  |
 
-
 ## 📌 效果图
 
 ![1625055cde4a7bde5cc42ca6a2ca56c](https://github.com/user-attachments/assets/ebc919fd-874c-4dbf-89a4-ba199ea16523)
-
 
 ## 📌 注意事项
 
 - 已知某些日期会报错，还没深入测试
 - 如果想第一时间得到反馈的可以来作者的插件反馈群（QQ群）：460973561
-
 
 ## 🌟 支持
 
@@ -70,4 +64,3 @@ git clone https://github.com/Zhalslar/astrbot_plugin_memelite
 ## 📜 开源协议
 
 本项目采用 [MIT License](LICENSE)
-
