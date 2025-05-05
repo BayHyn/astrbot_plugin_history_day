@@ -68,4 +68,4 @@ git clone https://github.com/Zhalslar/astrbot_plugin_memelite
 ## 📌 注意事项
 
 - 已知某些日期会报错，还没深入测试
-- 如果想第一时间得到反馈的可以来作者的插件反馈群（QQ群）：460973561
+- 如果想第一时间得到反馈的可以来作者的插件反馈群（QQ群）：460973561（不点star不给进）
